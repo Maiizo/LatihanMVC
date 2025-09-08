@@ -11,7 +11,7 @@ include("controller_office.php");
     <title>Document</title>
 </head>
 
-<body>
+<body class="d-flex align-items-center min-vh-100">
     <div class="container">
         <div class="card text-center">
             <div class="card-header">

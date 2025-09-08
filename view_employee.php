@@ -10,12 +10,11 @@
     <title>Document</title>
 </head>
 
-<body>
+<body class="d-flex align-items-center min-vh-100">
     <div class="container">
-        <div class="container">
-            <div class="card text-center">
-                <div class="card-header">
-                    <ul class="nav nav-tabs card-header-tabs">
+        <div class="card text-center">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
                         <li class="nav-item">
                             <a class="nav-link" aria-current="true" href="view_addemployee.php">Tambah Karyawan</a>
                         </li>
@@ -32,7 +31,7 @@
                     </ul>
                 </div>
                 <div class="card-body">
-                    <table class="table">
+                    <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th scope="col">No.</th>
