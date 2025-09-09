@@ -37,8 +37,8 @@ if (isset($_POST['button_submit_office'])) {
 
 
 if (isset($_GET['deleteID'])) {
-    deleteEmployee($_GET['deleteID']);
-    header("Location: view_employee.php");
+    deleteOffice($_GET['deleteID']);
+    header("Location: view_office.php");
     exit();
 }
 

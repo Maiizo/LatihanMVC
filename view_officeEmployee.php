@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 
-<body class="d-flex align-items-center min-vh-100">
+<body style="margin-top: 400px;">
     <div class="container">
         <div class="container">
             <div class="card text-center">
@@ -28,7 +28,9 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="view_officeEmployee.php">Office Employee</a>
                         </li>
-                      
+                         <li class="nav-item">
+                            <a class="nav-link" href="view_office.php">List Office</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="card-body">
