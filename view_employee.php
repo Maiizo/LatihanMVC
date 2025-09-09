@@ -51,7 +51,9 @@
                                 <td><?=$employee->usia?></td>
                                 <td></td>
                                 <td class="text-center">
+                                <a href="view_updateEmployee.php?updateID=<?=$index?>">
                                     <button class="btn btn-warning">Update</button>
+                            </a>
                                     <a href="controller_employee.php?deleteID=<?=$index?>">
                                     <button type="button" class="btn btn-sm btn-danger">Delete</button>
                                     </a>

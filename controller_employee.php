@@ -15,6 +15,13 @@ function createMember(){
     array_push($_SESSION['employeelist'], $employee);
 }
 
+function updateEmployee($employeeID){
+    $employee = $_SESSION['employeelist'][$employeeID];
+    $employee->nama = $_POST['inputNama'];
+    $employee->jabatan = $_POST['inputJabatan'];
+    $employee->usia = $_POST['inputUsia'];
+}
+
 function getAllEmployees() {
     return $_SESSION['employeelist'];
 }
@@ -23,6 +30,9 @@ function deleteEmployee($employeeIndex) {
     unset($_SESSION['employeelist'][$employeeIndex]); // array index = 0, 1 ,2
 }
 
+function getEmployeeWithID($employeeID) {
+    return $_SESSION['employeelist'][$employeeID];
+}
 
 // if button_register di click
 if (isset($_POST['button_register'])) {
@@ -36,4 +46,9 @@ if (isset($_GET['deleteID'])) {
     header("Location: view_employee.php"); // to go back to other page
 }
 
+// jika button update di click
+if (isset($_POST['button_update'])) {
+    updateEmployee($_POST['input_id']);
+    header("Location: view_employee.php"); // to go back to other page
+}
 ?>
