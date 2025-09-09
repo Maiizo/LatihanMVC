@@ -27,6 +27,7 @@ require("controller_employee.php");
                     <li class="nav-item">
                         <a class="nav-link active" href="view_addEmployee.php">New Employee</a>
                     </li>
+                    
                 </ul>
             </div>
             <div class="card-body">

@@ -19,6 +19,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="view_addEmployee.php">New Employee</a>
                     </li>
+                    <li>
+                        <a class="nav-link" href="view_office.php">Office</a>
+                    </li>
                 </ul>
             </div>
             <div class="card-body">
@@ -39,7 +42,19 @@
                     <div class="d-grid">
                         <button name="button_register" type="submit" class="btn btn-primary">Register</button>
                     </div>
-
+                    <div class="mb-3">
+                        <label for="inputOffice">Office</label>
+                        <select class="form-control" name="inputOffice">
+                            <option value="">Select Office</option>
+                            <?php
+                            require_once("controller_office.php");
+                            $offices = getAllOffices();
+                            foreach ($offices as $index => $office) {
+                            ?>
+                                <option value="<?= $index ?>"><?= $office->nama ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
                 </form>
             </div>
         </div>

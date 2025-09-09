@@ -12,6 +12,7 @@ function createMember(){
     $employee->nama = $_POST['inputNama'];
     $employee->jabatan = $_POST['inputJabatan'];
     $employee->usia = $_POST['inputUsia'];
+    $employee->office_id = $_POST['inputOffice'] ?? null;
     array_push($_SESSION['employeelist'], $employee);
 }
 

@@ -21,6 +21,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="view_addEmployee.php">New Employee</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="view_office.php">Office</a>
+                    </li>
                 </ul>
             </div>
 
@@ -41,29 +44,29 @@
                             <?php
                             $counter = 0;
                             $allemployees = getAllEmployees();
-                            foreach($allemployees as $index => $employee){
+                            foreach ($allemployees as $index => $employee) {
                                 $counter++;
                             ?>
                                 <tr>
-                                <th scope="row"><?php echo($counter);?></th>
-                                <td><?=$employee->nama?></td>
-                                <td><?=$employee->jabatan?></td>
-                                <td><?=$employee->usia?></td>
-                                <td></td>
-                                <td class="text-center">
-                                <a href="view_updateEmployee.php?updateID=<?=$index?>">
-                                    <button class="btn btn-warning">Update</button>
-                            </a>
-                                    <a href="controller_employee.php?deleteID=<?=$index?>">
-                                    <button type="button" class="btn btn-sm btn-danger">Delete</button>
-                                    </a>
-                                    
-                                </td>
-                            </tr>
+                                    <th scope="row"><?php echo ($counter); ?></th>
+                                    <td><?= $employee->nama ?></td>
+                                    <td><?= $employee->jabatan ?></td>
+                                    <td><?= $employee->usia ?></td>
+                                    <td></td>
+                                    <td class="text-center">
+                                        <a href="view_updateEmployee.php?updateID=<?= $index ?>">
+                                            <button class="btn btn-warning">Update</button>
+                                        </a>
+                                        <a href="controller_employee.php?deleteID=<?= $index ?>">
+                                            <button type="button" class="btn btn-sm btn-danger">Delete</button>
+                                        </a>
+
+                                    </td>
+                                </tr>
                             <?php
                             }
                             ?>
-                            
+
                         </tbody>
                     </table>
                 </div>
