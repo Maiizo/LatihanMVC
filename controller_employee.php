@@ -2,12 +2,13 @@
 
 require_once("model_employee.php");
 session_start();
-//  create session employeelist if not exist
+
+// Create session employeelist if not exist
 if (!isset($_SESSION['employeelist'])) {
     $_SESSION['employeelist'] = array();
 }
 
-function createMember(){
+function createEmployee(){
     $employee = new model_employee();
     $employee->nama = $_POST['inputNama'];
     $employee->jabatan = $_POST['inputJabatan'];
@@ -28,28 +29,34 @@ function getAllEmployees() {
 }
 
 function deleteEmployee($employeeIndex) {
-    unset($_SESSION['employeelist'][$employeeIndex]); // array index = 0, 1 ,2
+    if (isset($_SESSION['employeelist'][$employeeIndex])) {
+        unset($_SESSION['employeelist'][$employeeIndex]);
+        $_SESSION['employeelist'] = array_values($_SESSION['employeelist']);
+    }
 }
 
 function getEmployeeWithID($employeeID) {
     return $_SESSION['employeelist'][$employeeID];
 }
 
-// if button_register di click
+// If button_register clicked
 if (isset($_POST['button_register'])) {
-    createMember();
-    header("Location: view_employee.php"); // to go back to other page
+    createEmployee();
+    header("Location: view_employee.php");
+    exit();
 }
 
-// jika button delete di click
+// If button delete clicked
 if (isset($_GET['deleteID'])) {
     deleteEmployee($_GET['deleteID']);
-    header("Location: view_employee.php"); // to go back to other page
+    header("Location: view_employee.php");
+    exit();
 }
 
-// jika button update di click
+// If button update clicked
 if (isset($_POST['button_update'])) {
     updateEmployee($_POST['input_id']);
-    header("Location: view_employee.php"); // to go back to other page
+    header("Location: view_employee.php");
+    exit();
 }
 ?>
