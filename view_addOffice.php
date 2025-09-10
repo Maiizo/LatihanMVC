@@ -16,6 +16,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="view_employee.php">Employee</a>
                     </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="view_addEmployee.php">New Employee</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="view_office.php">Office</a>
                     </li>
