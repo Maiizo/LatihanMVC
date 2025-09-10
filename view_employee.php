@@ -24,6 +24,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="view_office.php">Office</a>
                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="view_addOffice.php">New Office</a>
+                    </li>
                 </ul>
             </div>
 
