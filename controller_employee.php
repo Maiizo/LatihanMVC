@@ -21,6 +21,7 @@ function updateEmployee($employeeID){
     $employee->nama = $_POST['inputNama'];
     $employee->jabatan = $_POST['inputJabatan'];
     $employee->usia = $_POST['inputUsia'];
+    $employee->office_id = $_POST['inputOffice'] ?? null;
 }
 
 function getAllEmployees() {
