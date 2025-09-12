@@ -10,25 +10,25 @@
     <title>Office Employee Management</title>
 </head>
 
-    <body>
+<body>
     <div class="container my-5">
-        <div class="card text-center">
-            <div class="card-header">
-                <ul class="nav nav-tabs card-header-tabs">
+        <div class="card shadow-lg text-center">
+            <div class="card-header bg-primary text-white">
+                <ul class="nav nav-tabs card-header-tabs border-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="view_employee.php">Employee</a>
+                        <a class="nav-link text-white" href="view_employee.php">Employee</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="view_addEmployee.php">New Employee</a>
+                        <a class="nav-link text-white" href="view_addEmployee.php">New Employee</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="view_office.php">Office</a>
+                        <a class="nav-link text-white" href="view_office.php">Office</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="view_addOffice.php">New Office</a>
+                        <a class="nav-link text-white" href="view_addOffice.php">New Office</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="view_officeEmployee.php">Office Employee</a>
+                        <a class="nav-link text-black fw-bold active" href="view_officeEmployee.php">Office Employee</a>
                     </li>
                 </ul>
             </div>
@@ -38,26 +38,29 @@
                     <table class="table table-striped table-hover align-middle">
                         <thead class="table-dark">
                             <tr>
+                                <th scope="col">No</th>
                                 <th scope="col">Employee</th>
                                 <th scope="col">Office</th>
                                 <th scope="col" class="text-center">Actions</th>
                             </tr>
                         </thead>
-                         <tbody>
+                        <tbody>
+
                             <?php
+                            $counter = 0;
                             $allEmployee = getAllEmployees();
                             foreach ($allEmployee as $index => $employee) {
-                           ?>
+                                $counter++;
+                            ?>
                                 <tr>
-                                    <td><?=$employee->nama?></td>
-                                    <td><?=isset($employee->office_id) && $employee->office_id ? $employee->office_id : 'N/A'?></td>
+                                <th scope="row"><?= $counter ?></th>
+                                    <td><?= $employee->nama ?></td>
+                                    <td><?= isset($employee->office_id) && $employee->office_id ? $employee->office_id : 'N/A' ?></td>
                                     <td class="text-center">
                                         <a href="controller_employee.php?deleteID=<?= $index ?>" class="btn btn-sm btn-danger">Delete</a>
                                     </td>
                                 </tr>
-                            <?php
-                            }
-                            ?>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>

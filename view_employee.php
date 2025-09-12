@@ -12,23 +12,23 @@
 
 <body>
     <div class="container my-5">
-        <div class="card text-center">
-            <div class="card-header">
-                <ul class="nav nav-tabs card-header-tabs">
+        <div class="card shadow-lg text-center">
+            <div class="card-header bg-primary text-white">
+                <ul class="nav nav-tabs card-header-tabs border-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="view_employee.php">Employee</a>
+                        <a class="nav-link active text-black fw-bold" href="view_employee.php"> Employee</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="view_addEmployee.php">New Employee</a>
+                        <a class="nav-link text-white" href="view_addEmployee.php"> New Employee</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="view_office.php">Office</a>
+                        <a class="nav-link text-white" href="view_office.php"> Office</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="view_addOffice.php">New Office</a>
+                        <a class="nav-link text-white" href="view_addOffice.php"> New Office</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="view_officeEmployee.php">Office Employee</a>
+                        <a class="nav-link text-white" href="view_officeEmployee.php"> Office Employee</a>
                     </li>
                 </ul>
             </div>
