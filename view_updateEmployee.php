@@ -1,10 +1,11 @@
 <?php
 require("controller_employee.php");
-    if (isset($_GET["updateID"])) {
-        $employee_id = $_GET["updateID"];
-        $employee = getEmployeeWithID($_GET["updateID"]);
-    }
+require("controller_office.php");
 
+if (isset($_GET["updateID"])) {
+    $employee_id = $_GET["updateID"];
+    $employee = getEmployeeWithID($_GET["updateID"]);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,19 +35,32 @@ require("controller_employee.php");
                 <form method="POST" action="controller_employee.php" class="w-50 mx-auto">
                     <div class="mb-3">
                         <label for="inputNama">Nama</label>
-                        <input type="text" class="form-control" name="inputNama" placeholder="Nama" value="<?=$employee->nama?>">
+                        <input type="text" class="form-control" name="inputNama" placeholder="Nama" value="<?= $employee->nama ?>">
                     </div>
                     <div class="mb-3">
                         <label for="inputJabatan">Jabatan</label>
-                        <input type="text" class="form-control" name="inputJabatan" placeholder="Jabatan" value="<?=$employee->jabatan?>">
+                        <input type="text" class="form-control" name="inputJabatan" placeholder="Jabatan" value="<?= $employee->jabatan ?>">
                     </div>
                     <div class="mb-3">
                         <label for="inputUsia">Usia</label>
-                        <input type="text" class="form-control" name="inputUsia" placeholder="Usia" value="<?=$employee->usia?>">
+                        <input type="text" class="form-control" name="inputUsia" placeholder="Usia" value="<?= $employee->usia ?>">
                     </div>
-                    
+
+                    <div class="mb-3">
+                        <label for="inputOffice" class="form-label">Office</label>
+                        <select class="form-select" name="inputOffice">
+                            <option value="">Pilih lokasi Office</option>
+                            <?php
+                            $offices = getAllOffices();
+                            foreach ($offices as $index => $office) {
+                                 $selected = (isset($employee->office_id) && $employee->office_id == $index) ? 'selected' : '';
+                            ?>
+                                <option value="<?= $index ?>" <?= $selected ?>><?= $office->nama ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
                     <div class="d-grid">
-                        <input type="hidden" name="input_id" value="<?=$employee_id?>">
+                        <input type="hidden" name="input_id" value="<?= $employee_id ?>">
                         <button name="button_update" type="submit" class="btn btn-primary">Update Employee</button>
                     </div>
                 </form>

@@ -1,8 +1,9 @@
 <?php
 
 require_once("model_office.php");
-session_start();
-
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 // create session officelist if not exist
 if (!isset($_SESSION['officelist'])) {
     $_SESSION['officelist'] = array();
@@ -26,16 +27,14 @@ function deleteOffice($officeIndex){
 }
 
 function getOfficeById($officeIndex) {
-    if (isset($_SESSION['officelist'][$officeIndex])) {
-        return $_SESSION['officelist'][$officeIndex];
-    }
-    return null;
+     return $_SESSION['officelist'][$officeIndex];
 }
 
 // handle form submissions
 if (isset($_POST['button_register_office'])) {
     createOffice();
     header("Location: view_office.php");
+    exit();
 }
 
 if (isset($_GET['deleteOfficeID'])) {

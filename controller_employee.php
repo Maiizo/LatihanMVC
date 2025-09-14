@@ -1,8 +1,13 @@
 <?php
 
 require_once("model_employee.php");
+require_once("model_office.php"); 
 
-session_start();
+//  Start session only if not already started
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 //  create session employeelist if not exist
 if (!isset($_SESSION['employeelist'])) {
     $_SESSION['employeelist'] = array();

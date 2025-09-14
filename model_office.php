@@ -7,8 +7,11 @@ class model_office {
     public $telepon;
     public $employees;
 
-    public function __construct(){
-        $this->employees = array();
+   public function __construct() {
+        $this->nama = '';
+        $this->alamat = '';
+        $this->kota = '';
+        $this->telepon = '';
     }
 }
 ?>

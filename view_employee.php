@@ -1,5 +1,7 @@
-<?php require("controller_employee.php"); ?>
-<!-- kalo ga pake require, maka harus pake session start in each file, a.k.a if use include -->
+<?php
+require_once("controller_employee.php");
+require_once("controller_office.php"); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,13 +55,20 @@
                             $allemployees = getAllEmployees();
                             foreach ($allemployees as $index => $employee) {
                                 $counter++;
+                                $office_name = ''; 
+                                if (isset($employee->office_id) && $employee->office_id !== '') {
+                                    $office = getOfficeById($employee->office_id);
+                                    if ($office) {
+                                        $office_name = $office->nama;
+                                    }
+                                }
                             ?>
                                 <tr>
                                     <th scope="row"><?php echo ($counter); ?></th>
                                     <td><?= $employee->nama ?></td>
                                     <td><?= $employee->jabatan ?></td>
                                     <td><?= $employee->usia ?></td>
-                                    <td><?= isset($employee->office_id) && $employee->office_id ? $employee->office_id : 'N/A' ?></td>
+                                    <td><?= $office_name ?></td>
                                     <td class="text-center">
                                         <a href="view_updateEmployee.php?updateID=<?= $index ?>" class="btn btn-sm btn-warning">Update</a>
                                         <a href="controller_employee.php?deleteID=<?= $index ?>" class="btn btn-sm btn-danger">Delete</a>

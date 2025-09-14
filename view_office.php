@@ -1,4 +1,5 @@
-<?php require("controller_office.php"); ?>
+<?php require_once("controller_employee.php");
+require_once("controller_office.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 

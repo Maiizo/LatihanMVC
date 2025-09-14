@@ -1,4 +1,5 @@
-<?php require("controller_employee.php"); ?>
+<?php require("controller_employee.php");
+require("controller_office.php"); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -45,20 +46,27 @@
                             </tr>
                         </thead>
                         <tbody>
-
                             <?php
                             $counter = 0;
                             $allEmployee = getAllEmployees();
                             foreach ($allEmployee as $index => $employee) {
                                 $counter++;
+                                $office_name = ' ';
+
+                                if (isset($employee->office_id) && $employee->office_id !== '') {
+                                    $office = getOfficeById($employee->office_id);
+                                    if ($office) {
+                                        $office_name = $office->nama;
+                                    }
+                                }
                             ?>
                                 <tr>
-                                <th scope="row"><?= $counter ?></th>
+                                    <th scope="row"><?= $counter ?></th>
                                     <td><?= $employee->nama ?></td>
-                                    <td><?= isset($employee->office_id) && $employee->office_id ? $employee->office_id : 'N/A' ?></td>
-                                    <td class="text-center">
+                                    <td><?= $office_name ?></td> 
+                                        <td class="text-center">
                                         <a href="controller_employee.php?deleteID=<?= $index ?>" class="btn btn-sm btn-danger">Delete</a>
-                                    </td>
+                                        </td>
                                 </tr>
                             <?php } ?>
                         </tbody>
