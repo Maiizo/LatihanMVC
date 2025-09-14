@@ -1,13 +1,14 @@
 <?php
 
 require_once("model_employee.php");
+
 session_start();
 //  create session employeelist if not exist
 if (!isset($_SESSION['employeelist'])) {
     $_SESSION['employeelist'] = array();
 }
 
-function createMember(){
+function createEmployee(){
     $employee = new model_employee();
     $employee->nama = $_POST['inputNama'];
     $employee->jabatan = $_POST['inputJabatan'];
@@ -38,7 +39,7 @@ function getEmployeeWithID($employeeID) {
 
 // if button_register di click
 if (isset($_POST['button_register'])) {
-    createMember();
+    createEmployee();
     header("Location: view_employee.php"); // to go back to other page
 }
 
