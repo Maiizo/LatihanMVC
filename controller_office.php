@@ -18,6 +18,7 @@ function createOffice() {
     array_push($_SESSION['officelist'], $office);
 }
 
+
 function getAllOffices() {
     return $_SESSION['officelist'];
 }
@@ -27,7 +28,10 @@ function deleteOffice($officeIndex){
 }
 
 function getOfficeById($officeIndex) {
-     return $_SESSION['officelist'][$officeIndex];
+     if (isset($_SESSION['officelist'][$officeIndex])) {
+        return $_SESSION['officelist'][$officeIndex];
+    }
+    return null;
 }
 
 // handle form submissions
